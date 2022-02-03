@@ -89,3 +89,43 @@ footer {
     background-color: var(--color3);
     box-shadow: var(--shadow);
 }
+
+#link {
+    max-height: 700px;
+    transform: scaleX(-1);
+}
+
+.hide {
+    visibility: hidden;
+}
+
+#game {
+    flex-direction: row;
+}
+
+.render-goblin {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: black 2px solid;
+}
+
+.goblin {
+    display: flex;
+    flex-direction: column;
+    border: red 2px solid;
+}
+
+.goblin-image {
+    max-width: 400px;
+}
+
+.win-loss {
+    margin: 30px;
+    border: blue 2px solid;
+}
+
+#top-display {
+    display: flex;
+    flex-direction: row;
+}
