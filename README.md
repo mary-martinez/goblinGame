@@ -35,15 +35,17 @@ Feature plan:
         - hard code 2 goblin divs (temporary until renderGoblin is made)
     - TDD renderGoblin(goblin) function
     - displayGoblins function
-
+    
 2. goblinClick 
     - Add event listener for goblinClick
     - add goblinClickHandler
 
 3. Handling HP = 0
-    - if goblin HP = 0
+    - if goblin HP = 0 ==> goblin death function
     - if player HP = 0
+    - win/lose functions
 
+4. Add goblin
 
 Additional considerations:
 - Ask: which of your HTML elements need to be hard coded, and which need to be dynamically generated?
