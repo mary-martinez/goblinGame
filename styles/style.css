@@ -120,7 +120,7 @@ footer {
     max-width: 400px;
 }
 
-.win-loss {
+.game-status {
     margin: 30px;
     border: blue 2px solid;
 }

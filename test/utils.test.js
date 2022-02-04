@@ -1,4 +1,4 @@
-import { renderGoblin } from "../utils.js";
+import { renderGoblin, renderGameStatus } from "../utils.js";
 
 
 const test = QUnit.test;
@@ -15,3 +15,12 @@ test('renderGoblin should return an <article> with info, classes, and ids', (exp
 
     expect.equal(actual.outerHTML, expected);
 });
+
+test('renderGameStatus should return an h2 with a class', (expect) => {
+    const expected = `<h2>You hit Bob.</h2>`;
+    const actual = renderGameStatus({
+        name: 'Bob',
+        case: 1
+    });
+    expect.equal(actual.outerHTML, expected);
+})

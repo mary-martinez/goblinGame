@@ -27,3 +27,35 @@ export function renderGoblin(goblin) {
 
     return article;
 }
+
+export function renderGameStatus(status) {
+    const h2 = document.createElement('h2');
+    switch (status.case) {
+        case 1:
+            h2.textContent = `You hit ${status.name}.`;
+            break;
+        case 2:
+            h2.textContent = `${status.name} hit you.`;
+            break;
+        case 3:
+            h2.textContent = `You killed ${status.name}`;
+            break;
+        case 4:
+            h2.textContent = `${status.name} killed you. You lose!`;
+            break;
+        case 5:
+            h2.textContent = `Congratulations! You won!`;
+            break;
+        case 6:
+            h2.textContent = `You missed ${status.name}.`;
+            break;
+        case 7:
+            h2.textContent = `${status.name} missed you.`;
+        case 8:
+            h2.textContent = `${status.name} is already dead. Please choose another foe to battle.`;
+            break;
+        default:
+            h2.textContent = '';
+    }
+    return h2;
+}
