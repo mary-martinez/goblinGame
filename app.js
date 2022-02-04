@@ -5,6 +5,7 @@ const goblinEl = document.getElementById('goblins');
 const addGoblin = document.getElementById('add-goblin');
 const linkHP = document.getElementById('linkHP');
 const gameStatus = document.getElementById('game-status');
+const defeatedNum = document.getElementById('defeated-number');
 // let state
 let playerHP = 10;
 const goblins = [
@@ -41,7 +42,7 @@ addGoblin.addEventListener('submit', (e) => {
     goblins.push(newGoblinInfo);
     displayGoblins();
 
-})
+});
 
 function displayGoblins() {
     // should loop through goblins array, call renderGoblins, and append them to the goblin location on the page
@@ -54,7 +55,7 @@ function displayGoblins() {
         goblinEl.append(tempGoblin);
     }
     linkHP.textContent = `Your HP: ${playerHP}`;
-};
+}
 
 displayGoblins();
 
@@ -63,18 +64,7 @@ function goblinClickHandler(goblin) {
     // link tries to hit goblin
     // if math.random is below a threshold, goblin hp --
     gameStatus.textContent = '';
-    // const allDead = 0;
-    let numDead = 0;
-    for (let goblin of goblins) {
-        if (goblin.hp === 0) numDead++;
-        if (numDead === goblins.length) {
-            const game = {
-                name: goblin.name,
-                case: 5
-            };
-            gameStatus.append(renderGameStatus(game));
-        }
-    }
+
     if (goblin.hp <= 0) {
         const game = {
             name: goblin.name,
@@ -82,16 +72,24 @@ function goblinClickHandler(goblin) {
         };
         gameStatus.append(renderGameStatus(game));
         return;
-    };
+    }
 
-    if (Math.random() < 1) {
+    if (Math.random() < .6) {
         goblin.hp--;
         if (goblin.hp === 0) {
+            const caseVal = checkDead(goblin);
+            console.log(caseVal);
             const game = {
                 name: goblin.name,
-                case: 3
+                case: caseVal[0]
             };
             gameStatus.append(renderGameStatus(game));
+            if (caseVal[1] > 1) {
+                defeatedNum.textContent = `You've defeated ${caseVal[1]} bokoblins!`;
+            } else {
+                defeatedNum.textContent = `You've defeated ${caseVal[1]} bokoblin!`;
+            }
+            if (caseVal[0] === 5) return;
         } else {
             const game = {
                 name: goblin.name,
@@ -109,7 +107,7 @@ function goblinClickHandler(goblin) {
 
     // goblin tries to hit link
     // if math.random is below a threshold, player hp --
-    if (Math.random() < 1) {
+    if (Math.random() < 0.5) {
         playerHP--;
         if (playerHP === 0) {
             const game = {
@@ -132,4 +130,17 @@ function goblinClickHandler(goblin) {
         gameStatus.append(renderGameStatus(game));
     }
     displayGoblins();
-};
+}
+
+function checkDead(goblin) {
+    let numDead = 0;
+    for (let goblin of goblins) {
+        if (goblin.hp === 0) numDead++;
+    }
+    if (numDead === goblins.length) {
+        return [5, numDead];
+    } else {
+        return [3, numDead];
+    }
+
+}

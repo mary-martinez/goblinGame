@@ -51,6 +51,7 @@ export function renderGameStatus(status) {
             break;
         case 7:
             h2.textContent = `${status.name} missed you.`;
+            break;
         case 8:
             h2.textContent = `${status.name} is already dead. Please choose another foe to battle.`;
             break;

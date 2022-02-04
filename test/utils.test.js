@@ -1,4 +1,4 @@
-import { renderGoblin, renderGameStatus } from "../utils.js";
+import { renderGoblin, renderGameStatus } from '../utils.js';
 
 
 const test = QUnit.test;
@@ -23,4 +23,4 @@ test('renderGameStatus should return an h2 with a class', (expect) => {
         case: 1
     });
     expect.equal(actual.outerHTML, expected);
-})
+});
