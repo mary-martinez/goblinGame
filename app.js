@@ -77,7 +77,7 @@ function goblinClickHandler(goblin) {
     if (Math.random() < .6) {
         goblin.hp--;
         if (goblin.hp === 0) {
-            const caseVal = checkDead(goblin);
+            const caseVal = checkDead();
             console.log(caseVal);
             const game = {
                 name: goblin.name,
@@ -132,11 +132,10 @@ function goblinClickHandler(goblin) {
     displayGoblins();
 }
 
-function checkDead(goblin) {
+function checkDead() {
     let numDead = 0;
-    let goblinHP = goblin.hp;
     for (let goblin of goblins) {
-        if (goblinHP === 0) numDead++;
+        if (goblin.hp === 0) numDead++;
     }
     if (numDead === goblins.length) {
         return [5, numDead];
