@@ -2,6 +2,9 @@ export function renderGoblin(goblin) {
     const article = document.createElement('article');
     article.classList.add('render-goblin');
     article.setAttribute('id', `render${goblin.id}`);
+    if (goblin.class === 'dead') {
+        article.classList.add(`${goblin.class}`);
+    }
 
     const div = document.createElement('div');
     div.classList.add('goblin');

@@ -6,18 +6,21 @@ const addGoblin = document.getElementById('add-goblin');
 const linkHP = document.getElementById('linkHP');
 const gameStatus = document.getElementById('game-status');
 const defeatedNum = document.getElementById('defeated-number');
+const linkImg = document.getElementById('link');
 // let state
 let playerHP = 10;
 const goblins = [
     {
         id: 1,
         name: 'Bob',
-        hp: 4
+        hp: 4,
+        class: ''
     },
     {
         id: 2,
         name: 'Katy',
-        hp: 2
+        hp: 2,
+        class: ''
     }
 ];
 let goblinNumber = goblins.length;
@@ -36,7 +39,8 @@ addGoblin.addEventListener('submit', (e) => {
     const newGoblinInfo = {
         id: goblinNumber,
         name: newGoblin.get('opponent-name'),
-        hp: goblinHP
+        hp: goblinHP,
+        class: ''
     };
 
     goblins.push(newGoblinInfo);
@@ -66,7 +70,7 @@ function goblinClickHandler(goblin) {
 
     if (goblin.hp <= 0) {
         const caseVal = checkDead();
-        if (caseVal[0] === 5) {
+        if (caseVal[0] === 'you won') {
             const game = {
                 name: goblin.name,
                 case: caseVal[0]
@@ -86,6 +90,7 @@ function goblinClickHandler(goblin) {
     if (Math.random() < .6) {
         goblin.hp--;
         if (goblin.hp === 0) {
+            goblin.class = 'dead'
             const caseVal = checkDead();
             const game = {
                 name: goblin.name,
@@ -97,7 +102,7 @@ function goblinClickHandler(goblin) {
             } else {
                 defeatedNum.textContent = `You've defeated ${caseVal[1]} bokoblin!`;
             }
-            if (caseVal[0] === 5) {
+            if (caseVal[0] === 'you won') {
                 displayGoblins();
                 return;
             }
@@ -124,6 +129,7 @@ function goblinClickHandler(goblin) {
                 case: 'you lose'
             };
             gameStatus.append(renderGameStatus(game));
+            linkImg.classList.add('dead');
         } else {
             const game = {
                 name: goblin.name,

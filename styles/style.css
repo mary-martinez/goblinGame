@@ -129,3 +129,7 @@ footer {
     display: flex;
     flex-direction: row;
 }
+
+.dead {
+    opacity: 0.4;
+}

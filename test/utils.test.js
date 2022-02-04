@@ -10,7 +10,8 @@ test('renderGoblin should return an <article> with info, classes, and ids', (exp
     const actual = renderGoblin({
         id: 1,
         name: 'Bob',
-        hp: 4
+        hp: 4,
+        class: ''
     });
 
     expect.equal(actual.outerHTML, expected);
@@ -20,7 +21,7 @@ test('renderGameStatus should return an h2 with a class', (expect) => {
     const expected = `<h2>You hit Bob.</h2>`;
     const actual = renderGameStatus({
         name: 'Bob',
-        case: 1
+        case: 'hit goblin'
     });
     expect.equal(actual.outerHTML, expected);
 });
