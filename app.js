@@ -134,8 +134,9 @@ function goblinClickHandler(goblin) {
 
 function checkDead(goblin) {
     let numDead = 0;
+    let goblinHP = goblin.hp;
     for (let goblin of goblins) {
-        if (goblin.hp === 0) numDead++;
+        if (goblinHP === 0) numDead++;
     }
     if (numDead === goblins.length) {
         return [5, numDead];
