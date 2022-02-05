@@ -154,7 +154,7 @@ function checkDead() {
     // }
     if (numDead > 0 & numDead < 3) {
         playerStrength = playerStrengthArray[numDead];
-        linkImg.setAttribute('id', `link${numDead}`)
+        linkImg.setAttribute('id', `link${numDead}`);
     } else {
         playerStrength = playerStrengthArray[2];
     }
