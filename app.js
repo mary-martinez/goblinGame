@@ -45,7 +45,6 @@ addGoblin.addEventListener('submit', (e) => {
     goblins.push(newGoblinInfo);
     displayGoblins();
     addGoblin.reset();
-
 });
 
 function displayGoblins() {
@@ -63,7 +62,6 @@ function displayGoblins() {
 displayGoblins();
 
 function goblinClickHandler(goblin) {
-    // console.log(`clicking on ${goblin.name}`);
     gameStatus.classList.remove('hidden');
     gameStatus.textContent = '';
 
@@ -148,10 +146,6 @@ function goblinClickHandler(goblin) {
 }
 
 function checkDead() {
-    // let numDead = 0;
-    // for (let goblin of goblins) {
-    //     if (goblin.hp === 0) numDead++;
-    // }
     if (numDead > 0 & numDead < 3) {
         playerStrength = playerStrengthArray[numDead];
         linkImg.setAttribute('id', `link${numDead}`);
