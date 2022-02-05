@@ -47,7 +47,7 @@ export function renderGameStatus(status) {
             h2.textContent = `${status.name} killed you. You lose!`;
             break;
         case 'you won':
-            h2.textContent = `Congratulations! You won!`;
+            h2.textContent = `Congratulations! You saved Hyrule!`;
             break;
         case 'missed goblin':
             h2.textContent = `You missed ${status.name}.`;
