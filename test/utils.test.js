@@ -11,7 +11,7 @@ test('renderGoblin should return an <article> with info, classes, and ids', (exp
         id: 1,
         name: 'Bob',
         hp: 4,
-        class: 'dead'
+        class: ''
     });
 
     expect.equal(actual.outerHTML, expected);
