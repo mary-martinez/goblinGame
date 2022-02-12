@@ -130,6 +130,7 @@ function goblinClickHandler(goblin) {
             };
             gameStatus.append(renderGameStatus(game));
             linkImg.classList.add('dead');
+            endgame = 1;
         } else {
             const game = {
                 name: goblin.name,
