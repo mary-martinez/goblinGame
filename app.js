@@ -11,6 +11,7 @@ let playerHP = 10;
 let playerStrengthArray = [0.5, 0.7, 0.85];
 let playerStrength = 0.4;
 let numDead = 0;
+let endgame = 0;
 const goblins = [
     {
         id: 1,
@@ -29,7 +30,7 @@ let goblinNumber = goblins.length;
 
 addGoblin.addEventListener('submit', (e) => {
     e.preventDefault();
-
+    if (endgame === 1) return;
     const newGoblin = new FormData(addGoblin);
 
     const goblinHP = Math.ceil(Math.random() * 5);
@@ -102,6 +103,7 @@ function goblinClickHandler(goblin) {
             }
             if (caseVal[0] === 'you won') {
                 displayGoblins();
+                endgame = 1;
                 return;
             }
         } else {
